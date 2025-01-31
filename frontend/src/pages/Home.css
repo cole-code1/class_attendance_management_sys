@@ -1,0 +1,114 @@
+
+.hero {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 4rem 2rem; /* Keep padding for spacing */
+    text-align: center;
+    margin-top: 13em; /* Add margin to push it below the navbar */
+}
+
+.hero-title {
+    margin: 2rem 0; /* Adjust margin to provide space above and below */
+    font-size: 2.5rem;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    margin: 1rem 0; /* Adjust margin for better spacing */
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.hero-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero-button.secondary {
+    background-color: #6c757d;
+}
+
+.hero-button:hover {
+    background-color: #0056b3;
+}
+
+.hero-button.secondary:hover {
+    background-color: #5a6268;
+}
+
+.features {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.features-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.features-description {
+    margin-bottom: 2rem;
+}
+
+.features-list {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.feature-item {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.footer {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-description {
+    margin-bottom: 1rem;
+}
+
+.footer-form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.footer-input {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+}
+
+.footer-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.footer-button:hover {
+    background-color: #0056b3;
+}
