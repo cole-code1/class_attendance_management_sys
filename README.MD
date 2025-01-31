@@ -33,4 +33,5 @@ To set up the Class Attendance Management System locally, follow these steps:
    git clone https://github.com/yourusername/class-attendance-management-system.git
    cd class-attendance-management-system
 
-   git remote add "origin" git@github.com:cole-code1/class-attendance-management-system.git
+   git remote add "origin" git@github.com:cole-code1/.git
+   git remote set-url "origin" git@github.com:cole-code1/class-attendance-management-system.git
