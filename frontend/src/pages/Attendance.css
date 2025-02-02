@@ -1,110 +1,161 @@
-/* Home.css */
-
 .home-container {
     padding: 20px;
-    max-width: 800px;
-    margin: auto;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .header {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-    color: #333;
 }
 
-.no-records {
-    text-align: center;
+.no-attendance {
     margin: 20px 0;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .attendance-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
 .attendance-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
+    border: 1px solid #007bff;
+    padding: 16px;
     border-radius: 8px;
-    padding: 15px;
-    transition: box-shadow 0.3s;
-}
-
-.attendance-card:hover {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background: rgb(2, 0, 36);
+    background: linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 1) 9%,
+      rgba(9, 9, 121, 1) 68%,
+      rgba(0, 91, 255, 1) 97%
+    );
 }
 
 .attendance-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .delete-button {
-    background-color: #e74c3c;
+    background-color: #dc3545;
     color: white;
-    padding: 5px 10px;
+    padding: 4px 8px;
+    border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.delete-button:hover {
-    background-color: #c0392b;
 }
 
 .attendance-title {
     font-weight: bold;
-    color: #2980b9;
     text-decoration: none;
+    color: #007bff;
 }
 
 .attendance-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 12px;
+}
+
+.attendance-class {
+    background-color: #007bff;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
 }
 
 .attendance-status {
-    background-color: #3498db;
-    color: white;
-    padding: 5px 10px;
+    padding: 4px 8px;
     border-radius: 4px;
 }
 
-.remarks {
-    padding: 5px 10px;
-    border-radius: 4px;
-}
+.completed {
+    background-color: #28a745;
+    color: white;
+}.container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #444;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .form-group textarea {
+    resize: vertical;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background: #0056b3;
+  }
+  
 
-.has-remarks {
-    background-color: #f39c12;
+.not-completed {
+    background-color: #ffc107;
     color: white;
 }
 
-.no-remarks {
-    background-color: #95a5a6;
-    color: white;
+.attendance-remarks {
+    margin-top: 5px;
+    font-style: italic;
 }
 
 .login-alert {
     text-align: center;
-    margin: 20px 0;
+    margin-top: 20px;
 }
 
 .alert {
-    padding: 10px;
+    padding: 16px;
     background-color: #fff3cd;
     color: #856404;
-    border: 1px solid #ffeeba;
     border-radius: 4px;
 }
 
@@ -112,8 +163,4 @@
     font-weight: bold;
     color: #007bff;
     text-decoration: none;
-}
-
-.login-link:hover {
-    text-decoration: underline;
 }

@@ -30,5 +30,11 @@ To set up the Class Attendance Management System locally, follow these steps:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/class_attendance_management_system.git
+   git clone https://github.com/yourusername/class-attendance-mg-sys-projo.git
    cd class_attendance_management_system
+
+## How it works
+
+The following Video shows how my website works:
+
+https://drive.google.com/file/d/1jHXr_sn7CZ0YTbqu7r3ULt39xH23Ahg7/view?usp=drive_link

@@ -1,20 +1,27 @@
-
+/* Hero Section */
 .hero {
+
     background-color: #1a1a1a;
     color: white;
     padding: 4rem 2rem; /* Keep padding for spacing */
     text-align: center;
-    margin-top: 13em; /* Add margin to push it below the navbar */
+    margin-top: 20em; /* Add margin to push it below the navbar */
+    border-bottom: 4px solid #007bff; /* Add a bottom border for emphasis */
+    
 }
 
 .hero-title {
     margin: 2rem 0; /* Adjust margin to provide space above and below */
     font-size: 2.5rem;
+    font-weight: bold; /* Make the title bold */
 }
 
 .hero-description {
     font-size: 1.2rem;
     margin: 1rem 0; /* Adjust margin for better spacing */
+    max-width: 600px; /* Limit the width for better readability */
+    margin-left: auto;
+    margin-right: auto; /* Center the description */
 }
 
 .hero-buttons {
@@ -30,48 +37,53 @@
     padding: 1rem 2rem;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.hero-button.secondary {
-    background-color: #6c757d;
+    transition: background-color 0.3s, transform 0.2s; /* Add transform for hover effect */
 }
 
 .hero-button:hover {
     background-color: #0056b3;
+    transform: scale(1.05); /* Slightly enlarge button on hover */
 }
 
-.hero-button.secondary:hover {
-    background-color: #5a6268;
-}
-
+/* Features Section */
 .features {
     padding: 4rem 2rem;
     text-align: center;
+    background-color: #f9f9f9; /* Light background for contrast */
 }
 
 .features-title {
     font-size: 2rem;
     margin-bottom: 1rem;
+    font-weight: bold; /* Make the title bold */
 }
 
 .features-description {
     margin-bottom: 2rem;
+    font-size: 1.1rem; /* Slightly larger font for better readability */
 }
 
 .features-list {
     display: flex;
     justify-content: center;
     gap: 2rem;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }
 
 .feature-item {
-    background-color: #f0f0f0;
-    padding: 1rem;
+    background-color: #ffffff; /* White background for feature items */
+    padding: 1.5rem; /* Increased padding for better spacing */
     border-radius: 5px;
-    width: 200px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+    width: 250px; /* Increased width for better content fit */
+    transition: transform 0.2s; /* Add transition for hover effect */
 }
 
+.feature-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Footer Section */
 .footer {
     background-color: #1a1a1a;
     color: white;
@@ -82,6 +94,7 @@
 .footer-title {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    font-weight: bold; /* Make the title bold */
 }
 
 .footer-description {
@@ -98,6 +111,7 @@
     padding: 0.5rem;
     border-radius: 5px;
     border: none;
+    width: 250px; /* Set a fixed width for the input */
 }
 
 .footer-button {
@@ -107,8 +121,31 @@
     padding: 0.5rem 1rem;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Add transform for hover effect */
 }
 
 .footer-button:hover {
     background-color: #0056b3;
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+/* Attendance Section */
+.attendance-title {
+    font-size: 1.8rem;
+    margin: 2rem 0; /* Add margin for spacing */
+    text-align: center; /* Center the title */
+}
+
+.attendance-list {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items */
+    gap: 1rem; /* Space between items */
+}
+
+.attendance-item {
+    background-color: #ffffff; /* White background for attendance items */
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px;
 }

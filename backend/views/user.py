@@ -21,18 +21,24 @@ def get_user_by_id(user_id):
         return jsonify({"error":"User not found"}), 404
 
 
-@user_bp.route("/users", methods=["POST"])
+@user_bp.route('/users', methods=['POST'])
 def add_users():
     data = request.get_json()
-    email = data['email']
-    password = generate_password_hash(data['password'])
-    full_name = data['full_name']
-    role = data['role']
-    class_id = data['class_id']
 
-    check_email = User.query.filter_by(email=email).first()
-    if check_email:
-        return jsonify({"error":"email exists"}),406
+    # Check for required fields - provide defaults or handle missing data
+    full_name = data.get('full_name')
+    email = data.get('email')
+    password = data.get('password')
+    role = data.get('role', 'user')  # Default role to 'user'
+    class_id = data.get('class_id')  # Assuming this field should be handled
+
+    if not full_name or not email or not password:
+        return jsonify({"error": "Missing required fields"}), 400
+    
+    # Check if class_id is required in your application logic
+    if class_id is None:
+        return jsonify({"error": "class_id is required"}), 400
+    
     
     user = User(email=email, password=password, full_name=full_name, role=role, class_id=class_id)
     db.session.add(user)
