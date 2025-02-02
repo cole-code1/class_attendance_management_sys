@@ -14,7 +14,7 @@ from sqlalchemy.orm import relationship
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(128), nullable=False)
-    password = db.Column(db.String(128), nullable=True)
+    password = db.Column(db.String(512), nullable=False)
     full_name = db.Column(db.String(128), nullable=False)
     role = db.Column(db.String(128), nullable=False)
     class_id = db.Column(db.Integer, ForeignKey('class.id'), nullable=False)
