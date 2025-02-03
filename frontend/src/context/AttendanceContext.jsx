@@ -7,14 +7,14 @@ export const AttendanceContext = createContext();
 
 export const AttendanceProvider = ({ children }) => {
     const navigate = useNavigate();
-    const { authToken, current_user } = useContext(UserContext);
+    const {authToken, current_user } = useContext(UserContext);
     const [Class, setClass] = useState([]);
     const [attendance, setAttendance] = useState([]);
     const [onChange, setOnChange] = useState(false);
 
     // ================================ Fetch Classes ================================
     useEffect(() => {
-        fetch("https://class-attendance-management-sys.onrender.com/class", {
+        fetch("http://127.0.0.1:5000/class", {
             method: "GET",
             headers: {
                 "Content-type": "application/json",
@@ -29,7 +29,7 @@ export const AttendanceProvider = ({ children }) => {
     // ================================ Fetch Attendance ================================
     useEffect(() => {
         if (!authToken) return; // Avoid fetching if not logged in
-        fetch("https://class-attendance-management-sys.onrender.com/attendance", {
+        fetch(`http://127.0.0.1:5000/attendance`, {
             method: "GET",
             headers: {
                 "Content-type": "application/json",
@@ -50,7 +50,7 @@ export const AttendanceProvider = ({ children }) => {
         }
 
                toast.loading("Adding attendance ...");
-        fetch("https://class-attendance-management-sys.onrender.com/attendance", {
+        fetch("http://127.0.0.1:5000/attendance", {
             method: "POST",
             headers: {
                 "Content-type": "application/json",
@@ -83,7 +83,7 @@ export const AttendanceProvider = ({ children }) => {
     // ================================ Delete Attendance ================================
     const deleteAttendance = (id) => {
         toast.loading("Deleting Attendance ...");
-        fetch(`https://class-attendance-management-sys.onrender.com/attendance/${id}`, {
+        fetch(`http://127.0.0.1:5000/attendance/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-type": "application/json",

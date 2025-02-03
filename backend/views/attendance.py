@@ -4,14 +4,13 @@ from datetime import datetime
 
 attendance_bp= Blueprint("attendance_bp", __name__)
 
-
 @attendance_bp.route("/attendance", methods=["POST"])
 def add_attendance():
     data = request.get_json()
     student = data['student']
     class_ref = data['class_ref']
     date = data['date']
-    date_obj = datetime.strptime(date, '%d/%m/%Y')
+    date_obj = datetime.strptime(date, '%Y-%m-%d').strftime('%d/%m/%Y')
     status = data['status']
     remarks = data.get('remarks', None)
 
@@ -19,6 +18,9 @@ def add_attendance():
     db.session.add(new_attendance)
     db.session.commit()
     return jsonify({"msg":"Attendance added successfully!"}), 201
+
+# other routes...
+
 
 @attendance_bp.route("/attendance/<int:attendance_id>", methods=["GET"])
 def get_attendance(attendance_id):

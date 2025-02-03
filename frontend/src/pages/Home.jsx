@@ -63,7 +63,7 @@ export default function Home() {
                     {attendance && attendance.length < 1 && (
                         <div>
                             You don't have any attendance
-                            <Link to="/attendance">Create</Link>
+                            <Link to="/addattendance">Create</Link>
                         </div>
                     )}
                     <div className='attendance-list'>

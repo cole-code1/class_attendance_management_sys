@@ -8,9 +8,9 @@ export default function AddAttendance() {
     const { addAttendance, Class } = useContext(AttendanceContext);
     const { current_user } = useContext(UserContext);
 
-    const[student, setStudent] = useState("")
+    const [student, setStudent] = useState("");
     const [date, setDate] = useState("");
-    const [class_ref, setClass] = useState("");
+    const [class_ref, setClass_ref] = useState("");  // Change to "" for consistency
     const [status, setStatus] = useState("Present");
     const [remarks, setRemarks] = useState("");
 
@@ -27,12 +27,12 @@ export default function AddAttendance() {
             return;
         }
 
-        addAttendance(student,class_ref, date, status, remarks);
+        addAttendance(student, class_ref, date, status, remarks);
 
-        // Clear input fields
+        // Clear input fields after submission
         setDate("");
         setStudent("");
-        setClass("");
+        setClass_ref("");  // Reset class_ref properly
         setStatus("Present");
         setRemarks("");
     };
@@ -55,20 +55,24 @@ export default function AddAttendance() {
                     </div>
 
                     <div className="form-group">
-    <label htmlFor="name">Name</label>
-    <input
-        id="name"
-        type="text"
-        value={student} // Ensure `student` state exists
-        onChange={(e) => setStudent(e.target.value)}
-        required
-    />
-</div>
-
+                        <label htmlFor="name">Name</label>
+                        <input
+                            id="name"
+                            type="text"
+                            value={student}
+                            onChange={(e) => setStudent(e.target.value)}
+                            required
+                        />
+                    </div>
 
                     <div className="form-group">
                         <label htmlFor="class">Class</label>
-                        <select id="class" value={class_ref} onChange={(e) => setClass(e.target.value)} required>
+                        <select
+                            id="class"
+                            value={class_ref}
+                            onChange={(e) => setClass_ref(e.target.value)}  // Corrected
+                            required
+                        >
                             <option value="">Select a Class</option>
                             {Class.map((c) => (
                                 <option key={c.id} value={c.id}>
@@ -80,7 +84,12 @@ export default function AddAttendance() {
 
                     <div className="form-group">
                         <label htmlFor="status">Status</label>
-                        <select id="status" value={status} onChange={(e) => setStatus(e.target.value)} required>
+                        <select
+                            id="status"
+                            value={status}
+                            onChange={(e) => setStatus(e.target.value)}
+                            required
+                        >
                             <option value="Present">Present</option>
                             <option value="Absent">Absent</option>
                         </select>

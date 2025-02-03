@@ -14,7 +14,7 @@ export const UserProvider = ({ children }) => {
     // LOGIN FUNCTION
     const login = (email, password) => {
         toast.loading("Logging you in ... ");
-        fetch("https://class-attendance-management-sys.onrender.com/login", {
+        fetch("http://127.0.0.1:5000/login", {
             method: "POST",
             headers: {
                 'Content-type': 'application/json',
@@ -30,7 +30,7 @@ export const UserProvider = ({ children }) => {
                 sessionStorage.setItem("token", response.access_token);
                 setAuthToken(response.access_token);
 
-                fetch('https://class-attendance-management-sys.onrender.com/current_user', {
+                fetch('http://127.0.0.1:5000/current_user', {
                     method: "GET",
                     headers: {
                         'Content-type': 'application/json',
@@ -64,39 +64,33 @@ export const UserProvider = ({ children }) => {
     };
 
     // FETCH CURRENT USER
-    const fetchCurrentUser = () => {
-        if (!authToken) return; // Ensure we don't make unnecessary API calls
-
-        console.log("Fetching current user with token:", authToken);
-
-        fetch("https://class-attendance-management-sys.onrender.com/current_user", {
-            method: "GET",
+    useEffect(()=>{
+        fetchCurrentUser()
+    }, [])
+    const fetchCurrentUser = () => 
+    {
+        console.log("Current user fcn ",authToken);
+        
+        fetch('http://127.0.0.1:5000/current_user',{
+            method:"GET",
             headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${authToken}`,
-            },
+                'Content-type': 'application/json',
+                Authorization: `Bearer ${authToken}`
+            }
         })
-            .then((response) => response.json())
-            .then((response) => {
-                if (response.email) {
-                    setCurrentUser(response);
-                }
-            })
-            .catch((error) => {
-                toast.error("Failed to fetch current user data");
-                console.error("Error fetching current user:", error);
-            });
-    };
-
-    useEffect(() => {
-        fetchCurrentUser();
-    }, [authToken]); // Now runs only when authToken changes
+        .then((response) => response.json())
+        .then((response) => {
+          if(response.email){
+           setCurrentUser(response)
+          }
+        });
+    }; 
 
     // REGISTER (ADD USER)
     const addUser = (full_name, email, password,class_id,role) => {
         toast.loading("Registering...");
 
-        fetch("https://class-attendance-management-sys.onrender.com/users", {
+        fetch("http://127.0.0.1:5000/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

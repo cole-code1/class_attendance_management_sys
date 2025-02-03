@@ -2,6 +2,7 @@ from flask import jsonify, request, Blueprint
 from models import db, User
 from werkzeug.security import generate_password_hash
 
+
 user_bp= Blueprint("user_bp", __name__)
 
 
@@ -28,7 +29,7 @@ def add_users():
     # Check for required fields - provide defaults or handle missing data
     full_name = data.get('full_name')
     email = data.get('email')
-    password = data.get('password')
+    password = generate_password_hash(data.get('password'))
     role = data.get('role', 'user')  # Default role to 'user'
     class_id = data.get('class_id')  # Assuming this field should be handled
 
