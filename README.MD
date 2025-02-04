@@ -37,4 +37,4 @@ To set up the Class Attendance Management System locally, follow these steps:
 
 The following Video shows how my website works:
 
-https://drive.google.com/file/d/1jHXr_sn7CZ0YTbqu7r3ULt39xH23Ahg7/view?usp=drive_link
+https://drive.google.com/file/d/14xQqG-6__XNjv_9mMxNL-Yik1DjPx97j/view?usp=drive_link
