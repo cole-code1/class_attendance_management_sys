@@ -14,7 +14,7 @@ export const UserProvider = ({ children }) => {
     // LOGIN FUNCTION
     const login = (email, password) => {
         toast.loading("Logging you in ... ");
-        fetch("http://127.0.0.1:5000/login", {
+        fetch("https://class-attendance-management-sys.onrender.com/login", {
             method: "POST",
             headers: {
                 'Content-type': 'application/json',
@@ -30,7 +30,7 @@ export const UserProvider = ({ children }) => {
                 sessionStorage.setItem("token", response.access_token);
                 setAuthToken(response.access_token);
 
-                fetch('http://127.0.0.1:5000/current_user', {
+                fetch('https://class-attendance-management-sys.onrender.com/current_user', {
                     method: "GET",
                     headers: {
                         'Content-type': 'application/json',
@@ -71,7 +71,7 @@ export const UserProvider = ({ children }) => {
     {
         console.log("Current user fcn ",authToken);
         
-        fetch('http://127.0.0.1:5000/current_user',{
+        fetch('https://class-attendance-management-sys.onrender.com/current_user',{
             method:"GET",
             headers: {
                 'Content-type': 'application/json',
@@ -90,7 +90,7 @@ export const UserProvider = ({ children }) => {
     const addUser = (full_name, email, password,class_id,role) => {
         toast.loading("Registering...");
 
-        fetch("http://127.0.0.1:5000/users", {
+        fetch("https://class-attendance-management-sys.onrender.com/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -14,7 +14,7 @@ export const AttendanceProvider = ({ children }) => {
 
     // ================================ Fetch Classes ================================
     useEffect(() => {
-        fetch("http://127.0.0.1:5000/class", {
+        fetch("https://class-attendance-management-sys.onrender.com/class", {
             method: "GET",
             headers: {
                 "Content-type": "application/json",
@@ -29,7 +29,7 @@ export const AttendanceProvider = ({ children }) => {
     // ================================ Fetch Attendance ================================
     useEffect(() => {
         if (!authToken) return; // Avoid fetching if not logged in
-        fetch(`http://127.0.0.1:5000/attendance`, {
+        fetch(`https://class-attendance-management-sys.onrender.com/attendance`, {
             method: "GET",
             headers: {
                 "Content-type": "application/json",
@@ -50,7 +50,7 @@ export const AttendanceProvider = ({ children }) => {
         }
 
                toast.loading("Adding attendance ...");
-        fetch("http://127.0.0.1:5000/attendance", {
+        fetch("https://class-attendance-management-sys.onrender.com/attendance", {
             method: "POST",
             headers: {
                 "Content-type": "application/json",
@@ -83,7 +83,7 @@ export const AttendanceProvider = ({ children }) => {
     // ================================ Delete Attendance ================================
     const deleteAttendance = (id) => {
         toast.loading("Deleting Attendance ...");
-        fetch(`http://127.0.0.1:5000/attendance/${id}`, {
+        fetch(`https://class-attendance-management-sys.onrender.com/attendance/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-type": "application/json",
