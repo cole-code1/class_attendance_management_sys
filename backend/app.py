@@ -4,11 +4,11 @@ from models import db, TokenBlocklist
 from flask_jwt_extended import JWTManager
 from datetime import timedelta
 from flask_cors import CORS
-
+from flask_mail import Mail
 
 app = Flask(__name__)
 CORS(app) 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://schooldb_tvtm_user:TZJthtwxltxFPMzs2RhW3V2JMqELH9sk@dpg-cugbq2t6l47c73a15s80-a.oregon-postgres.render.com/schooldb_tvtm'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///school.db'
 
 migrate = Migrate(app, db)
 
@@ -22,6 +22,16 @@ jwt = JWTManager(app)
 jwt.init_app(app)
 
 
+# Flask-Mail Configuration
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_USERNAME'] = 'collinskathu7@gmail.com'  
+app.config['MAIL_PASSWORD'] ='dqdc cghl djdx fuex'  
+app.config['MAIL_DEFAULT_SENDER'] = "collinskathu7@gmail.com"
+
+mail = Mail(app)
 # import all functions in views
 from views import *
 

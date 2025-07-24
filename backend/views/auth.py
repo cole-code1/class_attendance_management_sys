@@ -32,6 +32,24 @@ def login():
         # If credentials are incorrect
         return jsonify({"error": "Invalid email or password"}), 401
     
+
+# Login_with_Google
+@auth_bp.route("/google-login", methods=["POST"])
+def login_with_google():
+    data = request.get_json()
+    email = data.get("email")
+
+    if not email:
+        return jsonify({"error": "Email required"}), 400
+    
+    user = User.query.filter_by(email=email).first()
+
+    if user:
+        access_token = create_access_token(identity=str(user.id))
+        return jsonify({"access_token": access_token}), 200
+    return jsonify({"error":"Email is incorrect"})
+   
+    
     
 # current user
 @auth_bp.route("/current_user", methods=["GET"])

@@ -14,7 +14,7 @@ export const UserProvider = ({ children }) => {
     // LOGIN FUNCTION
     const login = (email, password) => {
         toast.loading("Logging you in ... ");
-        fetch("https://class-attendance-management-sys.onrender.com/login", {
+        fetch("http://127.0.0.1:5000/login", {
             method: "POST",
             headers: {
                 'Content-type': 'application/json',
@@ -30,7 +30,7 @@ export const UserProvider = ({ children }) => {
                 sessionStorage.setItem("token", response.access_token);
                 setAuthToken(response.access_token);
 
-                fetch('https://class-attendance-management-sys.onrender.com/current_user', {
+                fetch('http://127.0.0.1:5000/current_user', {
                     method: "GET",
                     headers: {
                         'Content-type': 'application/json',
@@ -55,6 +55,54 @@ export const UserProvider = ({ children }) => {
             }
         });
     };
+     const login_with_google = async (email) => {
+    try {
+      toast.loading("Logging you in ...");
+
+      const response = await fetch("http://127.0.0.1:5000/google-login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) throw new Error("Failed to log in with Google");
+
+      const data = await response.json();
+      toast.dismiss(); // Remove loading toast
+
+      if (data.access_token) {
+        localStorage.setItem("token", token);
+        setToken(data.access_token);
+        
+        console.log("Google Token: ", token)
+        // Fetch user details
+        const userResponse = await fetch("http://127.0.0.1:5000/current_user", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (!userResponse.ok) throw new Error("Failed to fetch user data");
+        const userData = await userResponse.json();
+
+        if (userData.email) {
+          setUser(userData);
+        } else {
+          throw new Error("User data is incomplete.");
+        }
+      } else {
+        throw new Error(data.error || "Invalid email provided.");
+      }
+    } catch (error) {
+      console.error("Google login error:", error);
+      toast.dismiss();
+        toast.error(String(error?.message || "Something went wrong. Please try again."));
+    }
+  };
 
     // LOGOUT FUNCTION
     const logout = () => {
@@ -71,7 +119,7 @@ export const UserProvider = ({ children }) => {
     {
         console.log("Current user fcn ",authToken);
         
-        fetch('https://class-attendance-management-sys.onrender.com/current_user',{
+        fetch('http://127.0.0.1:5000/current_user',{
             method:"GET",
             headers: {
                 'Content-type': 'application/json',
@@ -90,7 +138,7 @@ export const UserProvider = ({ children }) => {
     const addUser = (full_name, email, password,class_id,role) => {
         toast.loading("Registering...");
 
-        fetch("https://class-attendance-management-sys.onrender.com/users", {
+        fetch("http://127.0.0.1:5000/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

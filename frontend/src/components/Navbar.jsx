@@ -23,6 +23,7 @@ export default function Navbar() {
                         </>
                     ) : (
                         <>
+                            <li><Link to="/"><i className="fa fa-book" aria-hidden="true">Home</i></Link></li>
                             <li><Link to="/login"><i className="fa fa-book" aria-hidden="true"></i> Login</Link></li>
                             <li><Link to="/register"><i className="fa fa-book" aria-hidden="true"></i> Register</Link></li>
                         </>

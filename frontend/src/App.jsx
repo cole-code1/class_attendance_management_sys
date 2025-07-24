@@ -11,6 +11,7 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import AddAttendance from './pages/AddAttendance';
 import Profile from './pages/Profle';
+import ForgotPassword from './pages/Forgot_password';
 import { UserProvider } from './context/UserContext';
 import { AttendanceProvider } from './context/AttendanceContext';
 
@@ -26,6 +27,7 @@ return(
     <Route path="/addattendance" element={<AddAttendance />} />
     <Route path="/attendancepage" element={<AttendancePage />} />
     <Route path="/login" element={<Login />} />
+    <Route path='/Forgotpassword' element={<ForgotPassword/>}/>
     <Route path="/profile" element={<Profile />} />
     <Route path="/register" element={<Register />} />
     {/* Add more routes as needed */}

@@ -13,8 +13,10 @@ shell = "*"
 flask-cors = "*"
 psycopg2-binary = "*"
 gunicorn = "*"
+psycopg2 = "*"
+flask-mail = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.8"
+python_version = "*"
